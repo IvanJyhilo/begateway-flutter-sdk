@@ -129,7 +129,7 @@ class CardPaymentFormState extends State<CardPaymentForm> {
 
   Future<void> requestCameraPermission() async {
     final status = await Permission.camera.request();
-    if (status.isGranted && Platform.isIOS) {
+    if (status.isGranted) {
       scanCard();
     } else if (status.isDenied) {
       return;
