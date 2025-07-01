@@ -189,7 +189,7 @@ class CardPaymentFormState extends State<CardPaymentForm> {
       FocusScope.of(context).requestFocus(_holderNameFocusNode);
     }
 
-    if (_holderNameController.text.length >= 2 &&
+    if (_holderNameController.text.trim().split(RegExp(r'\s+')).length >= 2 &&
         _cvvController.text.length == 3 &&
         _expiryDateController.text.length == 5 &&
         _cardNumberController.text.length >= 19 &&
