@@ -503,16 +503,14 @@ class CardPaymentFormState extends State<CardPaymentForm> {
                                 onChanged: (value) {
                                   setState(() {
                                     isNumber = false;
-                                    _cardNumberError =
-                                        ''; // Clear the error when data is entered
+                                    _cardNumberError = '';  // Clear the error when data is entered
                                   });
-                                  String formattedValue =
-                                      formatCardNumber(value);
+                                  String formattedValue = value.replaceAll(RegExp(r'[^0-9]'), '');
+                                  formattedValue = formatCardNumber(formattedValue);
                                   _cardNumberController.text = formattedValue;
-                                  _cardNumberController.selection =
-                                      TextSelection.fromPosition(TextPosition(
-                                          offset: _cardNumberController
-                                              .text.length));
+                                  _cardNumberController.selection = TextSelection.fromPosition(
+                                    TextPosition(offset: _cardNumberController.text.length),
+                                  );
                                 },
                                 autofocus: true,
                               ),
