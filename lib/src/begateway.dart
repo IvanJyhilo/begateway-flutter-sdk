@@ -95,7 +95,7 @@ class Begateway extends StatefulWidget {
   final String publicKey;
   final bool test;
   final String transactionType;
-  final int amount;
+  final double amount;
   final String currency;
   final String description;
   final String language;
