@@ -6,7 +6,7 @@ class AppState extends ChangeNotifier {
   final String publicKey;
   final bool test;
   final String transactionType;
-  final double amount;
+  final int amount;
   final String currency;
   final String description;
   final String language;
