@@ -860,4 +860,25 @@ class CardPaymentFormState extends State<CardPaymentForm> {
           ),
         ));
   }
+
+  // Method for format from integer to price with kopecks
+  String formatButtonText(String buttonText) {
+    // Ищем последовательность цифр
+    final regex = RegExp(r'\d+');
+    final match = regex.firstMatch(buttonText);
+
+    if (match == null) return buttonText;
+
+    String amountStr = match.group(0)!;
+    int amount = int.parse(amountStr);
+
+    // Разделяем на целую и дробную части
+    int integerPart = amount ~/ 100;
+    int decimalPart = amount % 100;
+
+    String formattedAmount =
+        '$integerPart.${decimalPart.toString().padLeft(2, '0')}';
+
+    return buttonText.replaceAll(amountStr, formattedAmount);
+  }
 }
