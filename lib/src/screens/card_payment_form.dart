@@ -836,7 +836,9 @@ class CardPaymentFormState extends State<CardPaymentForm> {
                                     ),
                                   ),
                                   child: Text(
-                                    appState.buttonText.toString(),
+                                    formatButtonText(
+                                      appState.buttonText.toString(),
+                                    ),
                                     style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
